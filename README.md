@@ -7,6 +7,8 @@ seats and snacks, pay on a simulated checkout and get a ticket with a QR code. T
 No real tickets are sold and no payments are processed. This product uses the TMDB API but is not
 endorsed or certified by TMDB.
 
+Built by aaxxeellii together with [Claude Code](https://claude.com/claude-code).
+
 ## Install on umbrelOS
 
 1. In Umbrel open **App Store**, click the **...** menu, then **Community App Stores**.
