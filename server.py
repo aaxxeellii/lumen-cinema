@@ -33,6 +33,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import webbrowser
 from collections import deque
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
@@ -44,7 +45,15 @@ ROOT = Path(__file__).resolve().parent
 STATIC = ROOT / "static"
 # In Docker (and Umbrel) LUMEN_DATA_DIR points at a mounted volume, so everything the site
 # changes - orders, config, the edited catalog, uploaded photos - survives an image update.
-DATA_DIR = Path(os.environ["LUMEN_DATA_DIR"]) if os.environ.get("LUMEN_DATA_DIR") else None
+# The Windows .exe (built with PyInstaller) unpacks itself to a temporary folder on every start,
+# so it keeps the same things in a "lumen-data" folder next to the .exe.
+FROZEN = getattr(sys, "frozen", False)
+if os.environ.get("LUMEN_DATA_DIR"):
+    DATA_DIR = Path(os.environ["LUMEN_DATA_DIR"])
+elif FROZEN:
+    DATA_DIR = Path(sys.executable).resolve().parent / "lumen-data"
+else:
+    DATA_DIR = None
 ORDERS_FILE = (DATA_DIR or ROOT / "data") / "orders.json"
 SECRET_FILE = (DATA_DIR or ROOT / "data") / "admin_secret.txt"
 CONFIG_FILE = (DATA_DIR or ROOT) / "config.json"
@@ -949,14 +958,24 @@ def main():
     mimetypes.add_type("image/svg+xml", ".svg")
     session_secret()
 
-    httpd = ThreadingHTTPServer((args.host, args.port), Handler)
+    try:
+        httpd = ThreadingHTTPServer((args.host, args.port), Handler)
+    except OSError as exc:
+        if not FROZEN:
+            raise
+        # double-clicked .exe: keep the window open long enough to read why it did not start
+        print(f"Could not start on port {args.port}: {exc}\nIs Lumen Cinema already running?")
+        input("Press Enter to close.")
+        return
+    if FROZEN and not os.environ.get("LUMEN_RESTARTED"):
+        webbrowser.open(f"http://localhost:{args.port}")
     print("Lumen Cinema is running")
     print(f"  Site:   http://localhost:{args.port}")
     print(f"  Admin:  http://localhost:{args.port}/admin")
     if args.host == "0.0.0.0" and lan_ip():
         print(f"  On your network: http://{lan_ip()}:{args.port}")
     if not tmdb_key():
-        print("  ! No TMDB API key yet - put it in config.json (tmdb_api_key) to load movies.")
+        print(f"  ! No TMDB API key yet - put it in {CONFIG_FILE} (tmdb_api_key) to load movies.")
     if not (STATIC / "index.html").exists():
         print("  ! static/index.html is missing - run build.bat to build the pages.")
     print("Press Ctrl+C to stop.\n")
@@ -970,6 +989,10 @@ def main():
         print("Restarting...\n", flush=True)
         if os.name == "posix":  # in a container this process must stay alive, so replace it in place
             os.execv(sys.executable, [sys.executable, str(Path(__file__).resolve()), *sys.argv[1:]])
+        if FROZEN:  # the .exe is its own interpreter; the reset flag makes the copy unpack itself afresh
+            env = dict(os.environ, PYINSTALLER_RESET_ENVIRONMENT="1", LUMEN_RESTARTED="1")
+            subprocess.Popen([sys.executable, *sys.argv[1:]], env=env)
+            return
         subprocess.Popen([sys.executable, str(Path(__file__).resolve()), *sys.argv[1:]])
 
 

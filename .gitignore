@@ -10,3 +10,8 @@ tools/git/
 node_modules/
 __pycache__/
 *.pyc
+
+# PyInstaller output
+dist/
+build/
+*.spec

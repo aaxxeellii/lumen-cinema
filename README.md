@@ -9,6 +9,12 @@ endorsed or certified by TMDB.
 
 Built by aaxxeellii together with [Claude Code](https://claude.com/claude-code).
 
+## Run on Windows
+
+Download `LumenCinema.exe` from [Releases](https://github.com/aaxxeellii/lumen-cinema/releases/latest)
+and double-click it. The site opens at http://localhost:8000. Settings and orders are kept in a
+`lumen-data` folder next to the .exe; put your TMDB API key in `lumen-data\config.json`.
+
 ## Install on umbrelOS
 
 1. In Umbrel open **App Store**, click the **...** menu, then **Community App Stores**.
