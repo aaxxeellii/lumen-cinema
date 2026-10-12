@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: aaxxeellii-lumen-cinema
+category: media
+name: Lumen Cinema
+version: "1.0.0"
+tagline: A demo cinema site with movie search, seats, snacks and tickets
+description: >-
+  Lumen Cinema is a fictional cinema website. Visitors search real movies (data from TMDB), pick a
+  theater type and showtime, choose seats and snacks, pay on a simulated checkout and get a ticket
+  with a QR code.
+
+
+  The admin page at /admin lists every order, scans tickets and edits prices, offers, meals,
+  combos, stock and showtimes. Log in with the username and password shown here.
+
+
+  Movies need a free TMDB API key: put it in config.json inside the app's data folder
+  (tmdb_api_key). Payments are simulated; no card data is sent anywhere.
+releaseNotes: ""
+developer: aaxxeellii
+website: https://github.com/aaxxeellii/lumen-cinema
+dependencies: []
+repo: https://github.com/aaxxeellii/lumen-cinema
+support: https://github.com/aaxxeellii/lumen-cinema/issues
+port: 8322
+gallery: []
+path: ""
+icon: https://raw.githubusercontent.com/aaxxeellii/lumen-cinema/main/static/favicon.svg
+defaultUsername: "admin"
+deterministicPassword: true
+submitter: aaxxeellii
+submission: https://github.com/aaxxeellii/lumen-cinema

@@ -1,0 +1,6 @@
+{
+  "name": "LUMEN Cinema Experience",
+  "description": "Ultra-realistic cinema booking platform featuring TMDB movie search, format & seat reservation, gourmet concession snack ordering, authentic payment flow, digital QR ticket passes, and an admin ticket scanner.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

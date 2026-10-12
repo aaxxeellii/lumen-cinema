@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: aaxxeellii-lumen-cinema_web_1
+      APP_PORT: 8000
+      # the cinema site is public; /admin has its own login
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: ghcr.io/aaxxeellii/lumen-cinema:1.0.0
+    restart: on-failure
+    stop_grace_period: 30s
+    user: "1000:1000"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    environment:
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: ${APP_PASSWORD}

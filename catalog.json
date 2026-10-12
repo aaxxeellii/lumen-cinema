@@ -1,0 +1,423 @@
+{
+  "cinema": {
+    "name": "Lumen Cinema",
+    "currency": "USD",
+    "bookingFeePerTicket": 1.25,
+    "taxRate": 0.08
+  },
+  "formats": [
+    {
+      "id": "imax",
+      "name": "IMAX with Laser",
+      "tagline": "Filmed for IMAX · Giant 1.43:1 curved screen with 4K laser projection",
+      "price": 21.5,
+      "screenSpecs": "80ft Curved Floor-to-Ceiling Screen",
+      "audioSpecs": "12-Channel Immersion Sound System",
+      "feature": "Custom IMAX Laser Dual-4K",
+      "auditorium": "Auditorium 1 (IMAX Laser)",
+      "rows": 12,
+      "cols": 18,
+      "aisles": [
+        5,
+        13
+      ],
+      "blocked": []
+    },
+    {
+      "id": "4dx",
+      "name": "4DX Experience",
+      "tagline": "Synchronized motion seats, atmospheric wind, fog, scent & environmental FX",
+      "price": 23.0,
+      "screenSpecs": "Wide Panoramic Cinema Canvas",
+      "audioSpecs": "Dolby Surround 7.1 with Haptic Bass",
+      "feature": "Motion & Vibration Reclining Seats",
+      "auditorium": "Auditorium 2 (4DX)",
+      "rows": 7,
+      "cols": 12,
+      "aisles": [
+        4,
+        8
+      ],
+      "blocked": []
+    },
+    {
+      "id": "dolby",
+      "name": "Dolby Cinema",
+      "tagline": "Dolby Vision dual-laser HDR & Dolby Atmos moving spatial audio",
+      "price": 19.5,
+      "screenSpecs": "Ultra-High Contrast Dolby Vision HDR",
+      "audioSpecs": "Dolby Atmos 64-Speaker 3D Audio Array",
+      "feature": "1,000,000:1 Contrast Ratio",
+      "auditorium": "Auditorium 3 (Dolby)",
+      "rows": 9,
+      "cols": 14,
+      "aisles": [
+        4,
+        10
+      ],
+      "blocked": []
+    },
+    {
+      "id": "vip",
+      "name": "VIP Recliner Suite",
+      "tagline": "Motorized heated leather recliners with in-theater culinary service",
+      "price": 25.0,
+      "screenSpecs": "Premium 4K Laser Screen",
+      "audioSpecs": "Bespoke Studio Surround",
+      "feature": "Heated Plush Leather Recliners",
+      "auditorium": "VIP Suite 1",
+      "rows": 5,
+      "cols": 8,
+      "aisles": [
+        2,
+        6
+      ],
+      "blocked": []
+    },
+    {
+      "id": "standard",
+      "name": "Standard Digital 4K",
+      "tagline": "Crystal-clear digital projection with pristine auditorium sound",
+      "price": 15.0,
+      "screenSpecs": "Standard 4K Barco Digital Screen",
+      "audioSpecs": "7.1 High Definition Digital Surround",
+      "feature": "High-Brightness Laser Engine",
+      "auditorium": "Auditorium 4",
+      "rows": 10,
+      "cols": 14,
+      "aisles": [
+        4,
+        10
+      ],
+      "blocked": []
+    }
+  ],
+  "ticketTypes": [
+    {
+      "id": "adult",
+      "name": "Adult",
+      "note": "Ages 13 to 59",
+      "multiplier": 1.0
+    },
+    {
+      "id": "child",
+      "name": "Child",
+      "note": "Ages 3 to 12",
+      "multiplier": 0.75
+    },
+    {
+      "id": "senior",
+      "name": "Senior",
+      "note": "Ages 60+",
+      "multiplier": 0.8
+    }
+  ],
+  "maxTickets": 10,
+  "snacks": [
+    {
+      "id": "popcorn",
+      "name": "Popcorn",
+      "category": "Popcorn & Classics",
+      "description": "Fresh warm popcorn made to order. Keep it simple with sea salt, drizzle it with real butter, glaze it in caramel, or mix flavors in one tub.",
+      "image": "popcorn.jpg",
+      "badge": "Guest Favorite",
+      "calories": "280–540 kcal",
+      "dietary": "Vegetarian",
+      "special": true,
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Small",
+          "price": 6.5
+        },
+        {
+          "id": "medium",
+          "name": "Medium",
+          "price": 8.5
+        },
+        {
+          "id": "large",
+          "name": "Large",
+          "price": 10.0
+        },
+        {
+          "id": "size-972779",
+          "name": "Jumbo",
+          "price": 6.0,
+          "was": 12.0
+        }
+      ],
+      "flavors": {
+        "options": [
+          "Simple",
+          "Butter",
+          "Caramel"
+        ],
+        "min": 1,
+        "max": 3
+      },
+      "deal": {
+        "take": 10,
+        "pay": 1
+      },
+      "stock": null,
+      "soldOut": false
+    },
+    {
+      "id": "water-bottle",
+      "name": "Water Bottle",
+      "category": "Beverages",
+      "description": "Chilled pure natural mountain spring water in an eco-glass bottle. Crisp and refreshing.",
+      "image": "/uploads/51841a01a74926d7.jpg",
+      "badge": "Chilled",
+      "calories": "0 kcal",
+      "dietary": "Hydration",
+      "special": true,
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Small (355 ml)",
+          "price": 3.0
+        },
+        {
+          "id": "medium",
+          "name": "Regular (500 ml)",
+          "price": 4.0
+        },
+        {
+          "id": "large",
+          "name": "Large (1 L)",
+          "price": 5.5
+        }
+      ],
+      "stock": null,
+      "soldOut": false
+    },
+    {
+      "id": "pineapple",
+      "name": "Pineapple Chunks",
+      "category": "Fresh & Healthy",
+      "description": "Freshly sliced chilled golden Hawaiian pineapple bites served in a sealed snack cup with wooden picks.",
+      "image": "/uploads/1903b4538beab361.jpg",
+      "badge": "Fresh Daily",
+      "calories": "110 kcal",
+      "dietary": "Organic · Raw Vegan",
+      "special": true,
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Small Cup",
+          "price": 4.5
+        },
+        {
+          "id": "medium",
+          "name": "Regular Cup",
+          "price": 5.5
+        },
+        {
+          "id": "large",
+          "name": "Large Cup",
+          "price": 7.0
+        }
+      ],
+      "stock": null,
+      "soldOut": false
+    },
+    {
+      "id": "cucumbers",
+      "name": "Cucumber Slices",
+      "category": "Fresh & Healthy",
+      "description": "Crisp organic Persian cucumber rounds and chilled spears dusted with Maldon flaky sea salt crystals.",
+      "image": "/uploads/2623fe3d52bb7bd3.jpg",
+      "badge": "Crisp Snack",
+      "calories": "35 kcal",
+      "dietary": "Zero Sugar · Keto Friendly",
+      "special": true,
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Small Cup",
+          "price": 3.5
+        },
+        {
+          "id": "medium",
+          "name": "Regular Cup",
+          "price": 4.5
+        },
+        {
+          "id": "large",
+          "name": "Large Cup",
+          "price": 6.0
+        }
+      ],
+      "stock": null,
+      "soldOut": false
+    },
+    {
+      "id": "queso-nachos",
+      "name": "Loaded Warm Queso Nachos",
+      "category": "Popcorn & Classics",
+      "description": "Crisp stone-ground corn tortilla chips accompanied by hot aged jalapeño cheese queso and spicy salsa dip.",
+      "image": "/uploads/f7aca37e22a40bcf.jpg",
+      "badge": "Warm Concession",
+      "calories": "610 kcal",
+      "dietary": "Hot & Cheesy",
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Small Tray",
+          "price": 6.75
+        },
+        {
+          "id": "medium",
+          "name": "Regular Tray",
+          "price": 8.75
+        },
+        {
+          "id": "large",
+          "name": "Sharing Tray",
+          "price": 11.5
+        }
+      ],
+      "stock": null,
+      "soldOut": true
+    },
+    {
+      "id": "mandms-theater",
+      "name": "M&M's Peanut Butter",
+      "category": "Confections",
+      "description": "Crunchy roasted peanuts enveloped in rich milk chocolate and a crisp candy shell.",
+      "image": "/uploads/d6db89188bcb710f.jpg",
+      "badge": "Cinema Classic",
+      "calories": "250–620 kcal",
+      "dietary": "Contains Peanuts",
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Regular Bag",
+          "price": 3.5
+        },
+        {
+          "id": "medium",
+          "name": "Theater Box",
+          "price": 5.0
+        },
+        {
+          "id": "large",
+          "name": "Sharing Size",
+          "price": 7.0
+        }
+      ],
+      "stock": null,
+      "soldOut": true
+    },
+    {
+      "id": "red-twizzlers",
+      "name": "Twizzlers Red Strawberry Licorice",
+      "category": "Confections",
+      "description": "Classic cinema chewy strawberry twists. Sweet, nostalgic, and perfect for sharing through the feature.",
+      "image": "/uploads/bfce8961fb261efa.jpg",
+      "badge": "Cinema Staple",
+      "calories": "320 kcal",
+      "dietary": "Low Fat",
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Snack Pack",
+          "price": 3.25
+        },
+        {
+          "id": "medium",
+          "name": "Theater Pack",
+          "price": 4.75
+        },
+        {
+          "id": "large",
+          "name": "Sharing Pack",
+          "price": 6.5
+        }
+      ],
+      "stock": null,
+      "soldOut": true
+    },
+    {
+      "id": "fountain-soda",
+      "name": "Fountain Soda",
+      "category": "Beverages",
+      "description": "Ice-cold fountain beverage. Choose between Coca-Cola Original, Coke Zero Sugar, Sprite, or Cherry Coke.",
+      "image": "/uploads/93dda31fa9d583fa.jpg",
+      "badge": "Free Refill",
+      "calories": "90–180 kcal",
+      "dietary": "Ice Cold",
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Small (16 oz)",
+          "price": 4.0
+        },
+        {
+          "id": "medium",
+          "name": "Medium (24 oz)",
+          "price": 4.75
+        },
+        {
+          "id": "large",
+          "name": "Large (32 oz)",
+          "price": 5.5
+        }
+      ],
+      "flavors": {
+        "options": [
+          "Coca-Cola Original",
+          "Coke Zero Sugar",
+          "Sprite",
+          "Cherry Coke"
+        ],
+        "min": 1,
+        "max": 1
+      },
+      "stock": null,
+      "soldOut": true
+    },
+    {
+      "id": "icee",
+      "name": "ICEE Slushy",
+      "category": "Beverages",
+      "description": "Iconic frozen cinema treat with frosted icy crunch. Pick your flavor.",
+      "image": "/uploads/cce453bed1e98939.jpg",
+      "badge": "Frozen Treat",
+      "calories": "150–290 kcal",
+      "dietary": "Signature Freeze",
+      "sizes": [
+        {
+          "id": "small",
+          "name": "Small",
+          "price": 5.0
+        },
+        {
+          "id": "medium",
+          "name": "Medium",
+          "price": 6.5
+        },
+        {
+          "id": "large",
+          "name": "Large",
+          "price": 7.5
+        }
+      ],
+      "flavors": {
+        "options": [
+          "Blue Raspberry",
+          "Cherry",
+          "Lemon-Lime",
+          "Cola"
+        ],
+        "min": 1,
+        "max": 1
+      },
+      "stock": null,
+      "soldOut": true
+    }
+  ],
+  "extraShowtimes": []
+}

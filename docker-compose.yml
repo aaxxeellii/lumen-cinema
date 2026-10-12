@@ -1,0 +1,16 @@
+# Plain Docker: docker compose up -d   (then open http://localhost:8000)
+# The Umbrel version of this file is in aaxxeellii-lumen-cinema/.
+services:
+  lumen-cinema:
+    image: ghcr.io/aaxxeellii/lumen-cinema:latest
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./docker-data:/data
+    environment:
+      TMDB_API_KEY: ""        # your key from themoviedb.org/settings/api
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin   # change this
+      TZ: America/Mexico_City

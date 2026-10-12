@@ -1,0 +1,12 @@
+# secrets and live data stay on this machine
+config.json
+data/*
+!data/uploads/
+
+# local-only folders
+backup-lunara/
+tools/node/
+tools/git/
+node_modules/
+__pycache__/
+*.pyc
